@@ -1,0 +1,292 @@
+/* HistoryTab.css (Classic & Warm) */
+.history-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.history-tab-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.history-tab-header-text h2 {
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.history-tab-header-text p {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.history-count-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.icon-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ── Table (Classic Ledger Style) ── */
+.history-table-wrapper {
+  overflow-x: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.history-table thead tr {
+  background: var(--color-bg-secondary);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.history-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.history-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  vertical-align: middle;
+}
+
+.history-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.history-table tbody tr {
+  transition: background 0.15s;
+}
+
+.history-table tbody tr:hover {
+  background: var(--color-bg-secondary);
+}
+
+.history-file-name {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-date {
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+/* ── Revoke button in table ── */
+.btn-revoke {
+  background: transparent;
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.btn-revoke:hover {
+  background: var(--color-danger);
+  color: #fff;
+}
+
+.btn-revoke:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Empty state ── */
+.history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.4s ease both;
+}
+
+.history-empty-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+.history-empty-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.history-empty-sub {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+/* ── Loading skeleton ── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-bg-secondary) 25%, var(--color-border) 50%, var(--color-bg-secondary) 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: 2px;
+  height: 14px;
+}
+
+/* ── Error ── */
+.history-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--color-danger-dim);
+  border-left: 3px solid var(--color-danger);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  animation: fadeInUp 0.3s ease both;
+}
+
+.history-error-icon {
+  color: var(--color-danger);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.history-error-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-danger);
+  margin-bottom: 4px;
+}
+
+.history-error-msg {
+  font-size: 14px;
+  color: var(--color-danger);
+  opacity: 0.9;
+}
+
+/* ── Revoke confirm modal ── */
+.revoke-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 25, 23, 0.6); /* Warm dark overlay */
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 24px;
+}
+
+.revoke-modal {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
+  animation: fadeInUp 0.25s ease both;
+}
+
+.revoke-modal-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-danger-dim);
+  border: 1px solid rgba(139,30,15,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-danger);
+  margin-bottom: 24px;
+}
+
+.revoke-modal-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.revoke-modal-desc {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.revoke-modal-hash {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  background: var(--color-bg-secondary);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  word-break: break-all;
+  margin-bottom: 32px;
+}
+
+.revoke-modal-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}

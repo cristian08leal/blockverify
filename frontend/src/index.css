@@ -1,0 +1,210 @@
+/* ============================================================
+   BlockVerify — Global CSS Design System (Classic & Warm)
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Color Palette (Warm & Classic) ── */
+  --color-bg:            #FDFBF7; /* Alabaster / Warm off-white */
+  --color-bg-secondary:  #F7F4ED; /* Slightly darker warm gray */
+  --color-surface:       #FFFFFF; /* Pure white for cards */
+  --color-surface-hover: #FAFAFA;
+  --color-border:        #E5E0D8; /* Warm light gray border */
+  --color-border-focus:  #0F172A; /* Deep navy focus */
+
+  /* ── Primary Brand (Deep Navy / Professional) ── */
+  --color-primary:       #0F172A; /* Slate 900 */
+  --color-primary-hover: #1E293B; /* Slate 800 */
+  --color-primary-dim:   rgba(15, 23, 42, 0.04);
+  --color-primary-glow:  rgba(15, 23, 42, 0.1);
+
+  /* ── Semantic Colors (Muted & Elegant) ── */
+  --color-success:       #2F5A28; /* Forest Green */
+  --color-success-dim:   #E9F0E8;
+  --color-success-glow:  rgba(47, 90, 40, 0.1);
+
+  --color-warning:       #9A6B00; /* Dark Ocre / Bronze */
+  --color-warning-dim:   #FDF6E3;
+  --color-warning-glow:  rgba(154, 107, 0, 0.1);
+
+  --color-danger:        #8B1E0F; /* Crimson / Brick Red */
+  --color-danger-dim:    #FDEAEA;
+  --color-danger-glow:   rgba(139, 30, 15, 0.1);
+
+  /* ── Text ── */
+  --color-text-primary:  #1C1917; /* Warm Black (Stone 900) */
+  --color-text-secondary:#57534E; /* Warm Gray (Stone 600) */
+  --color-text-muted:    #78716C; /* Lighter Warm Gray (Stone 500) */
+  --color-text-accent:   #0F172A;
+
+  /* ── Typography ── */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans:  'Lato', system-ui, -apple-system, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── Spacing ── */
+  --radius-sm:  2px;
+  --radius-md:  4px;
+  --radius-lg:  8px;
+  --radius-xl:  12px;
+
+  /* ── Shadows (Subtle, realistic) ── */
+  --shadow-sm:   0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.04);
+  --shadow-glow: 0 0 0 2px var(--color-primary-glow);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: #D6D3D1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #A8A29E; }
+
+/* ── Button Base ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(15, 23, 42, 0.1);
+}
+
+.btn-primary:active { transform: translateY(0); box-shadow: none; }
+
+.btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-secondary);
+  border-color: #D6D3D1;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.btn-ghost:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+/* ── Spinner ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+.spinner-dark {
+  border-color: rgba(15, 23, 42, 0.1);
+  border-top-color: var(--color-primary);
+}
+
+/* ── Card ── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.badge-success { background: var(--color-success-dim); color: var(--color-success); border: 1px solid rgba(47,90,40,0.15); }
+.badge-warning { background: var(--color-warning-dim); color: var(--color-warning); border: 1px solid rgba(154,107,0,0.15); }
+.badge-danger  { background: var(--color-danger-dim);  color: var(--color-danger);  border: 1px solid rgba(139,30,15,0.15); }
+.badge-neutral { background: #F5F5F4; color: #57534E; border: 1px solid #E7E5E4; }
+
+/* ── Fade in animation ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Tooltip copy feedback ── */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
